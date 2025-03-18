@@ -1,6 +1,5 @@
 package br.com.meetime.hubspotintegration.service;
 
-import br.com.meetime.hubspotintegration.entity.ContactLog;
 import br.com.meetime.hubspotintegration.model.WebhookEvent;
 import br.com.meetime.hubspotintegration.repository.ContactLogRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,7 +8,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
