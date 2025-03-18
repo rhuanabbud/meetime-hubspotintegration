@@ -9,14 +9,16 @@ services:
       - SPRING_DATASOURCE_PASSWORD=root
     depends_on:
       - db
+      - phpmyadmin
 
   db:
     image: mysql:latest
+    command: --bind-address=0.0.0.0
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: hubspot_db
     ports:
-      - "3307:3306"
+      - "3306:3306"
     volumes:
       - ./src/main/resources/init.sql:/docker-entrypoint-initdb.d/init.sql
 
