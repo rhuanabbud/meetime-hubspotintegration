@@ -11,7 +11,7 @@ COPY . /app
 RUN ./mvnw package
 
 # Expose the application port and the debug port
-EXPOSE 8080 5005
+EXPOSE 8080
 
 # Run the application with remote debugging enabled
 CMD ["java", "-jar", "target/hubspotintegration-0.0.1-SNAPSHOT.jar"]
