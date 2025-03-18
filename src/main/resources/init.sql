@@ -9,3 +9,11 @@ CREATE TABLE IF NOT EXISTS contactlog (
     occurredat BIGINT,
     attemptnumber INT
     );
+
+CREATE TABLE IF NOT EXISTS contact (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    datainclusao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );

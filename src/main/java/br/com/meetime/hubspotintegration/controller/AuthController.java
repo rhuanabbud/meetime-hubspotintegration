@@ -1,5 +1,7 @@
 package br.com.meetime.hubspotintegration.controller;
 
+import br.com.meetime.hubspotintegration.model.ContactData;
+import br.com.meetime.hubspotintegration.service.ContactService;
 import br.com.meetime.hubspotintegration.service.HubSpotService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +27,11 @@ public class AuthController {
 
     private final HubSpotService hubSpotService;
 
-    public AuthController(HubSpotService hubSpotService) {
+    private final ContactService contactService;
+
+    public AuthController(HubSpotService hubSpotService, ContactService contactService) {
         this.hubSpotService = hubSpotService;
+        this.contactService = contactService;
     }
 
     @GetMapping("/authorize")
@@ -46,9 +51,10 @@ public class AuthController {
     }
 
     @PostMapping("/create-contact")
-    public ResponseEntity<String> createContact(@RequestHeader("Authorization") String token, @RequestBody Map<String, Object> contactData) throws URISyntaxException {
+    public ResponseEntity<String> createContact(@RequestHeader("Authorization") String token, @RequestBody ContactData contactData) throws URISyntaxException {
         logger.info("Iniciando o metodo createContact");
         hubSpotService.createContact(token, contactData);
+        contactService.saveContacts(contactData);
         logger.info("Finalizando o metodo createContact");
         return ResponseEntity.created(new URI("/auth/create-contact")).body("Contato foi criado com sucesso!");
     }

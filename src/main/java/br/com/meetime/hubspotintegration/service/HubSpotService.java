@@ -1,5 +1,6 @@
 package br.com.meetime.hubspotintegration.service;
 
+import br.com.meetime.hubspotintegration.model.ContactData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -62,7 +63,7 @@ public class HubSpotService {
         return (String) Objects.requireNonNull(response.getBody()).get("access_token");
     }
 
-    public void createContact(String token, Map<String, Object> contactData) {
+    public void createContact(String token, ContactData contactData) {
 
         logger.info("Iniciando metodo createContact para criacao do contato");
 
@@ -70,7 +71,9 @@ public class HubSpotService {
         headers.set("Authorization", token);
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(contactData, headers);
+        HttpEntity<ContactData> entity = new HttpEntity<>(contactData, headers);
+
+        logger.debug("Enviando a requisicao para HubSpot API contact data: {}", contactData);
 
         restTemplate.postForEntity(
                 "https://api.hubapi.com/crm/v3/objects/contacts",
