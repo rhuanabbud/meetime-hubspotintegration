@@ -22,7 +22,7 @@ public class ContactServiceLog {
     }
 
     public void saveContactsLog(List<WebhookEvent> events) {
-        logger.info("Iniciando metodo saveContactsLog para {} events", events.size());
+        logger.info("Iniciando metodo saveContactsLog");
         List<ContactLog> contacts = events.stream()
                 .map(event -> {
                     logger.debug("Salvando contato: {}", event);
