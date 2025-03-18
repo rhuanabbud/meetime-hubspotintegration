@@ -24,13 +24,14 @@ meetime-hubspotintegration/
 │   ├── main/java/br/com/meetime/hubspotintegration/
 │   │   ├── config/
 │   │   ├── controller/
-│   │   ├── dto/
 │   │   ├── entity/
+│   │   ├── model/
 │   │   ├── repository/
 │   │   ├── service/
 │   │   └── HubspotIntegrationApplication.java
 │   └── resources/
 │       └── application.properties
+│       └── init.sql
 ├── pom.xml
 └── README.md
 ```
@@ -67,8 +68,8 @@ meetime-hubspotintegration/
    ```
    
 ## Apos subir o ambiente fazer o passo a passo:
-- para pegar a URL do ngrok acessar http://localhost:4040/inspect/http
-- para acessar o console do banco com phpmyadmin http://localhost:8081
+- Pegar a URL gerada pelo ngrok para configuração do webhook `http://localhost:4040/inspect/http`
+- Para acessar o console do banco com phpmyadmin `http://localhost:8081`
 
 ## Endpoints Disponíveis
 
@@ -106,7 +107,7 @@ meetime-hubspotintegration/
 - **Recebe eventos de criação de contatos:**
 - **URL de retorno é configurada no HubSpot utilizando o ngrok:**
 - **Para funcionar no ambiente de desenvolvimento corretamente 
-    há nescessidade de deixar disponível o WebHook para o HubSpot**
+    há nescessidade de deixar disponível o WebHook no HubSpot**
   ```http
   POST /api/webhook/contact-creation
   ```
