@@ -3,6 +3,8 @@ package br.com.meetime.hubspotintegration.service;
 import br.com.meetime.hubspotintegration.entity.ContactLog;
 import br.com.meetime.hubspotintegration.model.WebhookEvent;
 import br.com.meetime.hubspotintegration.repository.ContactLogRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +13,8 @@ import java.util.stream.Collectors;
 @Service
 public class ContactServiceLog {
 
+    private static final Logger logger = LoggerFactory.getLogger(ContactServiceLog.class);
+
     private final ContactLogRepository contactLogRepository;
 
     public ContactServiceLog(ContactLogRepository contactLogRepository) {
@@ -18,8 +22,10 @@ public class ContactServiceLog {
     }
 
     public void saveContactsLog(List<WebhookEvent> events) {
+        logger.info("Iniciando metodo saveContactsLog para {} events", events.size());
         List<ContactLog> contacts = events.stream()
                 .map(event -> {
+                    logger.debug("Salvando contato: {}", event);
                     ContactLog contact = new ContactLog();
                     contact.setObjectId(event.getObjectId());
                     contact.setPropertyName(event.getPropertyName());
@@ -37,5 +43,6 @@ public class ContactServiceLog {
                 .collect(Collectors.toList());
 
         contactLogRepository.saveAll(contacts);
+        logger.info("Finalizado metodo saveContactsLog");
     }
 }
