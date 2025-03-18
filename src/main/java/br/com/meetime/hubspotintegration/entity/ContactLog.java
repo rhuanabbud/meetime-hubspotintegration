@@ -15,12 +15,6 @@ public class ContactLog {
     @Column(name = "objectid")
     private Long objectId;
 
-    @Column(name = "propertyname")
-    private String propertyName;
-
-    @Column(name = "propertyvalue")
-    private String propertyValue;
-
     @Column(name = "changesource")
     private String changeSource;
 
@@ -38,9 +32,6 @@ public class ContactLog {
 
     @Column(name = "occurredat")
     private Long occurredAt;
-
-    @Column(name = "eventtype")
-    private String eventType;
 
     @Column(name = "attemptnumber")
     private Integer attemptNumber;

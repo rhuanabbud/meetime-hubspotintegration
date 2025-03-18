@@ -25,18 +25,15 @@ public class ContactServiceLog {
         logger.info("Iniciando metodo saveContactsLog");
         List<ContactLog> contacts = events.stream()
                 .map(event -> {
-                    logger.debug("Salvando contato: {}", event);
+                    logger.info("Salvando contato: {}", event.toString());
                     ContactLog contact = new ContactLog();
                     contact.setObjectId(event.getObjectId());
-                    contact.setPropertyName(event.getPropertyName());
-                    contact.setPropertyValue(event.getPropertyValue());
                     contact.setChangeSource(event.getChangeSource());
                     contact.setEventId(event.getEventId());
                     contact.setSubscriptionId(event.getSubscriptionId());
                     contact.setPortalId(event.getPortalId());
                     contact.setAppId(event.getAppId());
                     contact.setOccurredAt(event.getOccurredAt());
-                    contact.setEventType(event.getEventType());
                     contact.setAttemptNumber(event.getAttemptNumber());
                     return contact;
                 })
