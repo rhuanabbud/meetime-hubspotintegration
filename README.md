@@ -16,7 +16,7 @@ Esta API foi desenvolvida em Java com Spring Boot para integração com o HubSpo
 ## Estrutura do Projeto
 
 ```
-hubspot-integration/
+meetime-hubspotintegration/
 │
 ├── docker-compose.yml
 ├── Dockerfile
@@ -40,8 +40,8 @@ hubspot-integration/
 1. **Clone o repositório**
 
    ```sh
-   git clone https://github.com/rhuanabbud/br.com.meetime.hubspotintegration
-   cd hubspot-integration
+   git clone https://github.com/rhuanabbud/meetime-hubspotintegration
+   cd meetime-hubspotintegration
    ```
 
 2. **Configure as variáveis de ambiente** no arquivo `application.properties`:

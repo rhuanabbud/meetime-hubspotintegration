@@ -11,8 +11,8 @@
     <groupId>br.com.meetime</groupId>
     <artifactId>hubspotintegration</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>br.com.meetime.hubspotintegration</name>
-    <description>br.com.meetime.hubspotintegration</description>
+    <name>meetime-hubspotintegration</name>
+    <description>Case Técnico: Integração com HubSpot</description>
     <url/>
     <licenses>
         <license/>
