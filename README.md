@@ -1,5 +1,18 @@
 # HubSpot Integration API
 
+# Pré-requisitos
+### Conta no HubSpot
+-    Link para criar conta de desenvolvimento: https://br.developers.hubspot.com/get-started
+- Utilizar a opção de `Um aplicativo`
+- Vincular sua conta de desenvolvedor como conta de teste e sandbox padrão
+     Link: https://knowledge.hubspot.com/pt/account-management/set-up-a-hubspot-standard-sandbox-account
+     LINK: https://br.developers.hubspot.com/docs/getting-started/account-types
+- Vincular para o aplicativo criado as permissões de `crm.objects.contacts.read` e `crm.objects.contacts.write`
+- Vincular a URL de redirecionamento para `http://localhost:8080/api/auth/callback`
+
+
+2 - Docker e Docker Compose
+
 ## Visão Geral
 
 Esta API foi desenvolvida em Java com Spring Boot para integração com o HubSpot, permitindo autenticação via OAuth 2.0, criação de contatos e recebimento de webhooks.
