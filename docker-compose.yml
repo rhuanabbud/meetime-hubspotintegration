@@ -8,8 +8,10 @@ services:
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
     depends_on:
-      - db
-      - phpmyadmin
+      db:
+        condition: service_healthy
+      phpmyadmin:
+          condition: service_started
 
   db:
     image: mysql:latest
@@ -21,6 +23,11 @@ services:
       - "3306:3306"
     volumes:
       - ./src/main/resources/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 5s
+      retries: 5
+      start_period: 10s
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
