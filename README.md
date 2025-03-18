@@ -65,6 +65,10 @@ hubspot-integration/
    ```sh
    docker-compose up
    ```
+   
+## Apos subir o ambiente fazer o passo a passo:
+- para pegar a URL do ngrok acessar http://localhost:4040/inspect/http
+- para acessar o console do banco com phpmyadmin http://localhost:8081
 
 ## Endpoints Disponíveis
 
