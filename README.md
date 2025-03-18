@@ -10,8 +10,8 @@
 - Vincular para o aplicativo criado as permissões de `crm.objects.contacts.read` e `crm.objects.contacts.write`
 - Vincular a URL de redirecionamento para `http://localhost:8080/api/auth/callback`
 
-
-2 - Docker e Docker Compose
+### Docker
+-    Link para instalação do Docker: https://docs.docker.com/get-docker/
 
 ## Visão Geral
 
