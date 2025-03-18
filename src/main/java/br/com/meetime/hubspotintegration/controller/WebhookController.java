@@ -1,7 +1,7 @@
 package br.com.meetime.hubspotintegration.controller;
 
 import br.com.meetime.hubspotintegration.model.WebhookEvent;
-import br.com.meetime.hubspotintegration.service.ContactService;
+import br.com.meetime.hubspotintegration.service.ContactServiceLog;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,15 +16,15 @@ import java.util.List;
 @RequestMapping("/webhook")
 public class WebhookController {
 
-    private final ContactService contactService;
+    private final ContactServiceLog contactServiceLog;
 
-    public WebhookController(ContactService contactService) {
-        this.contactService = contactService;
+    public WebhookController(ContactServiceLog contactService) {
+        this.contactServiceLog = contactService;
     }
 
     @PostMapping("/contact-creation")
     public ResponseEntity<String> handleContactCreation(@RequestBody List<WebhookEvent> events) throws URISyntaxException {
-        contactService.saveContacts(events);
+        contactServiceLog.saveContactsLog(events);
         return ResponseEntity.created(new URI("/webhook/contact-creation")).body("Webhook recebido com sucesso!");
     }
 }
